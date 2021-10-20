@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TechJobsOO;
 
 namespace TechJobsTests
 {
@@ -11,10 +12,13 @@ namespace TechJobsTests
             Assert.AreEqual(10, 10, .001);
         }
 
-        [TestInitialize]
-        public void Job()
+        [TestMethod]
+        public void TestSettingJobId()
         {
+            Job test_job1 = new Job();
+            Job test_job2 = new Job();
 
+            Assert.IsFalse(test_job1 == test_job2);
         }
     }
 }
