@@ -45,7 +45,10 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobsForEquality()
         {
+            Job job1 = new Job("name", new Employer("employer"), new Location("location"), new PositionType("type"), new CoreCompetency("persistence"));
+            Job job2 = new Job("name", new Employer("employer"), new Location("location"), new PositionType("type"), new CoreCompetency("persistence"));
 
+            Assert.IsFalse(job1 == job2);
         }
     }
 }
