@@ -21,7 +21,7 @@ namespace TechJobsOO
             Value = value;
         }
 
-        public override string ToString()
+        public override strin ToString()
         {
             if (String.IsNullOrEmpty(Value))
             {
