@@ -38,8 +38,8 @@ namespace TechJobsTests
             Assert.IsTrue(test_job1.Name == "Product tester");
             Assert.IsTrue(test_job1.EmployerName.Value == "ACME");
             Assert.IsTrue(test_job1.EmployerLocation.Value == "Desert");
-            Assert.IsTrue(test_job1.JobCoreCompetency.Value == "Persistence");
             Assert.IsTrue(test_job1.JobType.Value == "Quality control");
+            Assert.IsTrue(test_job1.JobCoreCompetency.Value == "Persistence");
         }
 
         [TestMethod]
@@ -54,7 +54,7 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobsToString()
         {
-            Assert.AreEqual(test_job1.ToString().Substring(0, 1), "\n");
+            Assert.AreEqual(test_job1.ToString().Substring(0, 1), "\n"); //new line reads as a single character
             Assert.AreEqual(test_job1.ToString().Substring(test_job1.ToString().Length - 1, 1), "\n");
             Assert.IsTrue(test_job1.ToString().Contains($"Id: " + test_job1.Id));
             Assert.IsTrue(test_job1.ToString().Contains($"Name: " + test_job1.Name));
