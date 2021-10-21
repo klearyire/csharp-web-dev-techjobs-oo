@@ -6,7 +6,7 @@ namespace TechJobsTests
     [TestClass]
     public class JobTests
     {
-        Job test_job1;
+        Job test_job;
         Employer acme;
         Location desert;
         PositionType qa;
@@ -20,7 +20,7 @@ namespace TechJobsTests
             qa = new PositionType("Quality control");
             persistence = new CoreCompetency("Persistence");
 
-            test_job1 = new Job("Product tester", acme, desert, qa, persistence);
+            test_job = new Job("Product tester", acme, desert, qa, persistence);
         }
 
         [TestMethod]
@@ -35,11 +35,11 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
-            Assert.IsTrue(test_job1.Name == "Product tester");
-            Assert.IsTrue(test_job1.EmployerName.Value == "ACME");
-            Assert.IsTrue(test_job1.EmployerLocation.Value == "Desert");
-            Assert.IsTrue(test_job1.JobType.Value == "Quality control");
-            Assert.IsTrue(test_job1.JobCoreCompetency.Value == "Persistence");
+            Assert.IsTrue(test_job.Name == "Product tester");
+            Assert.IsTrue(test_job.EmployerName.Value == "ACME");
+            Assert.IsTrue(test_job.EmployerLocation.Value == "Desert");
+            Assert.IsTrue(test_job.JobType.Value == "Quality control");
+            Assert.IsTrue(test_job.JobCoreCompetency.Value == "Persistence");
         }
 
         [TestMethod]
@@ -54,14 +54,14 @@ namespace TechJobsTests
         [TestMethod]
         public void TestJobsToString()
         {
-            Assert.AreEqual(test_job1.ToString().Substring(0, 1), "\n"); //new line reads as a single character
-            Assert.AreEqual(test_job1.ToString().Substring(test_job1.ToString().Length - 1, 1), "\n");
-            Assert.IsTrue(test_job1.ToString().Contains($"Id: " + test_job1.Id));
-            Assert.IsTrue(test_job1.ToString().Contains($"Name: " + test_job1.Name));
-            Assert.IsTrue(test_job1.ToString().Contains($"Employer: " + test_job1.EmployerName.Value));
-            Assert.IsTrue(test_job1.ToString().Contains($"Location: " + test_job1.EmployerLocation.Value));
-            Assert.IsTrue(test_job1.ToString().Contains($"Position type: " + test_job1.JobType.Value));
-            Assert.IsTrue(test_job1.ToString().Contains($"Core competency: " + test_job1.JobCoreCompetency.Value));
+            Assert.AreEqual(test_job.ToString().Substring(0, 1), "\n"); //new line reads as a single character
+            Assert.AreEqual(test_job.ToString().Substring(test_job.ToString().Length - 1, 1), "\n");
+            Assert.IsTrue(test_job.ToString().Contains($"Id: " + test_job.Id));
+            Assert.IsTrue(test_job.ToString().Contains($"Name: " + test_job.Name));
+            Assert.IsTrue(test_job.ToString().Contains($"Employer: " + test_job.EmployerName.Value));
+            Assert.IsTrue(test_job.ToString().Contains($"Location: " + test_job.EmployerLocation.Value));
+            Assert.IsTrue(test_job.ToString().Contains($"Position type: " + test_job.JobType.Value));
+            Assert.IsTrue(test_job.ToString().Contains($"Core competency: " + test_job.JobCoreCompetency.Value));
 
             Job jobToStringTest2 = new Job("", new Employer(""), desert, qa, persistence);
             Assert.IsTrue(jobToStringTest2.ToString().Contains($"Name: Data not available"));
